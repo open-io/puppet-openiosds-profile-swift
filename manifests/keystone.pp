@@ -13,8 +13,8 @@ class { 'keystone::roles::admin':
 # Installs the service user endpoint.
 class { 'keystone::endpoint':
   public_url   => "http://${ipaddress_enp0s8}:5000/v2.0",
-  admin_url    => "http://${ipaddress_enp0s8}:5000/v2.0",
-  internal_url => "http://${ipaddress_enp0s8}:35357/v2.0",
+  admin_url    => "http://${ipaddress}:5000/v2.0",
+  internal_url => "http://${ipaddress}:35357/v2.0",
   region       => 'localhost-1',
 }
 
@@ -36,8 +36,8 @@ keystone_service { 'openio-swift':
 keystone_endpoint { 'localhost-1/openio-swift':
    ensure       => present,
    public_url   => "http://${ipaddress_enp0s8}:6007/v1.0/AUTH_%(tenant_id)s",
-   admin_url    => "http://${ipaddress_enp0s8}:6007/v1.0/AUTH_%(tenant_id)s",
-   internal_url => "http://${ipaddress_enp0s8}:6007/v1.0/AUTH_%(tenant_id)s",
+   admin_url    => "http://${ipaddress}:6007/v1.0/AUTH_%(tenant_id)s",
+   internal_url => "http://${ipaddress}:6007/v1.0/AUTH_%(tenant_id)s",
 }
 
 # Demo account
